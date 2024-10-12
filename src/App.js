@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import "./components/Tooltip/Tooltip.css";
 import Form from "./components/Form/Form";
 import Modal from "./components/Modal/Modal";
+import Notes from "./components/Notes/Notes";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Sidebar />
         <Form />
         <Modal />
+        <Notes />
       </main>
     </div>
   );
