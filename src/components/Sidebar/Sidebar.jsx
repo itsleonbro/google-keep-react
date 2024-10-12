@@ -1,8 +1,9 @@
 import React from "react";
+import "./Sidebar.css";
 
 const Sidebar = () => {
   return (
-    <div>
+    <>
       <div className="sidebar">
         <div className="sidebar-item active-item">
           <span className="material-icons-outlined hover active">
@@ -27,7 +28,7 @@ const Sidebar = () => {
           <span className="sidebar-text">Trash</span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
