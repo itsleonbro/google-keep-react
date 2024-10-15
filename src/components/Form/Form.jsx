@@ -2,23 +2,30 @@ import React, { useState } from "react";
 import "./Form.css";
 import Tooltip from "../Tooltip/Tooltip";
 
-const Form = () => {
+const Form = ({ addNote }) => {
   const [title, setTitle] = useState("");
-  const [activeForm, setActiveForm] = useState(false); 
+  const [text, setText] = useState("");
+  const [activeForm, setActiveForm] = useState(false);
 
   const titleChange = event => {
     setTitle(event.target.value);
   };
 
+  const textChange = event => {
+    setText(event.target.value);
+  };
+
   const submitForm = event => {
     event.preventDefault();
+    addNote(title, text);
     setTitle("");
-    setActiveForm(false); // close form after submission
+    setText("");
+    setActiveForm(false);
   };
 
   return (
     <>
-      {!activeForm && ( // show inactive form when activeForm is false
+      {!activeForm && (
         <div
           className="form-container inactive-form"
           onClick={() => setActiveForm(true)}
@@ -38,7 +45,7 @@ const Form = () => {
         </div>
       )}
 
-      {activeForm && ( // show active form when activeForm is true
+      {activeForm && (
         <div className="form-container active-form">
           <form className="form" id="form" onSubmit={submitForm}>
             <input
@@ -54,6 +61,8 @@ const Form = () => {
               className="note-text"
               type="text"
               placeholder="Take a note..."
+              onChange={textChange}
+              value={text}
             />
             <div className="form-actions">
               <div className="icons">
