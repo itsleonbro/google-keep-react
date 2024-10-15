@@ -45,10 +45,6 @@
   display: flex;
 }
 
-.active-form {
-  display: none;
-}
-
 .close-btn {
   background: none;
   border: none;
