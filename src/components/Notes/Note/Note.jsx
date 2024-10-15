@@ -1,16 +1,11 @@
 import React from "react";
 import "./Note.css";
-import Tooltip from "../Tooltip/Tooltip";
+import Tooltip from "../../Tooltip/Tooltip";
 
-const Note = ({ note, handleMouseOver, handleMouseOut }) => {
+const Note = ({ note }) => {
   return (
     <>
-      <div
-        className="note"
-        id={note.id}
-        onMouseOver={() => handleMouseOver(note.id)}
-        onMouseOut={() => handleMouseOut(note.id)}
-      >
+      <div className="note" id={note.id}>
         <span className="material-icons check-circle">check_circle</span>
         <div className="title">{note.title}</div>
         <div className="text">{note.text}</div>

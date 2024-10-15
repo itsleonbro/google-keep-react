@@ -1,10 +1,14 @@
 import React from "react";
+import Note from "./Note/Note";
+import "./Notes.css";
 
-const Notes = () => {
+const Notes = ({ notes }) => {
   return (
-    <>
-      <div class="notes">{/* <!-- dynamically added notes --> */}</div>
-    </>
+    <div className="notes">
+      {notes.map(note => (
+        <Note key={note.id} note={note} />
+      ))}
+    </div>
   );
 };
 
