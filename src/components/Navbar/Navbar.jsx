@@ -2,12 +2,11 @@ import React from "react";
 import "./Navbar.css";
 import Tooltip from "../Tooltip/Tooltip";
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
   return (
     <nav>
       <div className="logo-area">
-        <Tooltip icon="menu" text="Main Menu" />
-
+        <Tooltip icon="menu" text="Main Menu" onClick={toggleSidebar} />
         <img
           className="gb_uc gb_7d"
           src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
