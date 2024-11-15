@@ -14,6 +14,9 @@ function App() {
     return savedNotes ? JSON.parse(savedNotes) : [];
   });
 
+  const [selectedNote, setSelectedNote] = useState(null); //trackin the note being edited
+  const [isModalOpen, setIsModalOpen] = useState(false); //modal visibility
+
   const addNote = (title, text) => {
     const newNote = {
       id: cuid(),
@@ -25,10 +28,15 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(updatedNotes));
   };
 
-  const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsCollapsed(prevState => !prevState);
+  const openModal = note => {
+    setSelectedNote(note);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedNote(null);
+    setIsModalOpen(false);
   };
 
   //sync notes with local storage whenever they change
