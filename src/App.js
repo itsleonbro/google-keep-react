@@ -25,9 +25,22 @@ function App() {
     };
     const updatedNotes = [...notes, newNote];
     setNotes(updatedNotes);
-    localStorage.setItem("notes", JSON.stringify(updatedNotes));
   };
 
+  const editNote = (id, updatedTitle, updatedText) => {
+    const updatedNotes = notes.map(note =>
+      note.id === id
+        ? { ...note, title: updatedTitle, text: updatedText }
+        : note
+    );
+    setNotes(updatedNotes);
+    setIsModalOpen(false);
+  };
+
+  const deleteNote = id => {
+    const updatedNotes = notes.filter(note => note.id !== id);
+    setNotes(updatedNotes);
+  };
 
   const openModal = note => {
     setSelectedNote(note);
@@ -46,12 +59,20 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar toggleSidebar={toggleSidebar} />
+      <Navbar toggleSidebar={() => {}} />
       <main>
-        <Sidebar isCollapsed={isCollapsed} />
+        <Sidebar />
         <Form addNote={addNote} />
-        <Notes notes={notes} />
-        <Modal />
+        <Notes notes={notes} onNoteClick={openModal} onDelete={deleteNote} />
+        {isModalOpen && (
+          <Modal
+            note={selectedNote}
+            onClose={closeModal}
+            onSave={editNote}
+            isModalOpen={isModalOpen}
+            onDelete={deleteNote}
+          />
+        )}
       </main>
     </div>
   );
