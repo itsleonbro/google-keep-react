@@ -10,7 +10,7 @@ const Navbar = ({ toggleSidebar }) => {
         <img
           className="gb_uc gb_7d"
           src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
-          srcset="
+          srcSet="
           https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png 1x,
           https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png 2x
         "
