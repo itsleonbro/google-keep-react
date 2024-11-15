@@ -7,6 +7,8 @@
   position: relative;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .note:hover {
@@ -34,7 +36,8 @@
   justify-content: center;
   margin-top: 15px;
   padding: 0;
-  visibility: hidden;
+  width: 100%;
+  
 }
 
 .note-footer .material-icons-outlined {
@@ -45,5 +48,5 @@
   position: absolute;
   top: -10px;
   left: -10px;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
