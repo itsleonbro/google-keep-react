@@ -17,6 +17,12 @@ const Form = ({ addNote }) => {
 
   const submitForm = event => {
     event.preventDefault();
+
+    if (!title && !text) {
+      setActiveForm(false);
+      return;
+    }
+
     addNote(title, text);
     setTitle("");
     setText("");
